@@ -1,0 +1,248 @@
+* {
+    box-sizing:border-box;
+    font-family: Calibri;
+}
+
+body {
+    background-color: #FFF5C3;
+    margin: 0;
+}
+
+.imageBoard {
+    display: grid;
+    grid-template-columns: repeat( auto-fit, minmax(360px, 1fr));
+    grid-gap: 40px;
+    justify-content: center;
+    justify-items: center;
+
+}
+
+.imageBox {
+    background-color: #F5CBFF;
+
+    height: 360px;
+    width: 360px;
+    border: 3px solid white;
+    border-radius: 10px;
+    text-align: center;
+    /* overflow: hidden; */
+
+}
+.imageBoxBig{
+    background-color: #F5CBFF;
+    height: 500px;
+    width: 500px;
+    border: 3px solid white;
+    border-radius: 10px;
+    text-align: center;
+    /* overflow: hidden; */
+
+}
+
+.imageAndClosing {
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 4;
+    text-align: center;
+
+}
+
+.closingTag {
+    font-size: 30px;
+    /* background-color: black; */
+    color: #9452A5;
+    width: 50px;
+    border-radius: 3px;
+    padding-top: 7px;
+    padding-bottom: 10px;
+}
+.closingTag:hover {
+    transform: scale(1.10);
+    cursor: pointer;
+}
+
+.imageBox:hover {
+    transform: scale(1.05);
+}
+
+.imageUploaded {
+    margin: auto;
+    /* border: 1px red solid; */
+    height: 90%;
+    width: 90%;
+    object-fit: cover;
+}
+
+.imageTitle{
+    /* border: 1px red solid; */
+    height: 30px;
+    text-align: center;
+    font-size: 20px;
+}
+
+#file-field {
+    display: none;
+}
+
+input {
+    color: black;
+    border:none;
+    /* border-radius: 8px; */
+    margin: 5px;
+    display:block;
+    width: 400px;
+    height: 50px;
+    font-size: 20px;
+    background-color: #F5CBFF;
+}
+.inputImitation {
+    color: black;
+    border:none;
+    /* border-radius: 8px; */
+    margin: 5px;
+    display:block;
+    width: 400px;
+    height: 50px;
+    font-size: 20px;
+    background-color: #F5CBFF;
+    display: flex;
+    align-items: center;
+}
+
+
+.imageInfo {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.divButton {
+    text-align: center;
+    /* width: 100%; */
+}
+
+.upload {
+    background-color: #9452A5;
+    padding: 5px;
+    border: 5px solid black;
+    border-radius: 60px;
+    width: 200px;
+    font-size: 24px;
+    margin: 5px;
+    cursor: pointer;
+    color : #360940;
+    margin-left: 45%;
+}
+h3{
+  color : #360940;
+}
+
+.upload:active {
+  background-color: #3e8e41;
+}
+
+.param{
+    width: 120px;
+    padding-left: 10px;
+}
+
+.fieldEdit {
+    display: flex;
+    justify-content: center;
+}
+
+.selectImage{
+    background-color: #212F3D;
+    color: white;
+    cursor: pointer;
+
+}
+
+.selectImage:hover {
+    background-color: white;
+    color: black;
+}
+
+
+/* .divSelectImage {
+    text-align: center;
+    margin-bottom: 10px;
+} */
+
+.divTitle {
+    text-align: center;
+    background-color: #9452A5;
+    color: #360940;
+    font-size: 50px;
+}
+
+#image-modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    background-color: rgb(0,0,0,0.7);
+
+}
+.gridArea {
+    display: grid;
+    justify-items: center;
+    align-items: center;;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    height: 92%;
+    width: 92%;
+    background-color: #FFF5C3;
+    border-radius: 20px;
+    overflow-y: auto;
+
+}
+
+.imageBig{
+    height: 50%;
+}
+
+.commentBox {
+    background-color: #FFF5C3;
+    width: 524px;
+    border: 3px solid black;
+    border-radius: 5px;
+}
+
+.formComments {
+    grid-column: 2 / span 1;
+    grid-row: 1 / span 2;
+}
+
+.commentBoard {
+    grid-column: 2 / span 1;
+    grid-row: 3 / span 2;
+    align-self: start;
+}
+.commentUploaded{
+  font-weight: bold;
+}
+
+.miniMenu {
+    grid-column: 1 / span 2;
+    grid-row: 5 / span 1;
+    display: flex;
+}
+
+.leftArrow {
+    font-size: 48px;
+     text-decoration: none;
+}
+
+.rightArrow {
+    font-size: 48px;
+     text-decoration: none;
+}
+
+.ImageTitleBig {
+    font-size: 48px;
+
+}

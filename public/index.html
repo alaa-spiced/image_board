@@ -1,10 +1,96 @@
 <!doctype html>
 <html>
 <head>
-    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Images Board</title>
+    <link rel="stylesheet" href="/stylesheet.css">
 </head>
 <body>
+    <div class="divTitle">
+        Image Board
+    </div>
+    <div id="main">
+        <image-modal v-if="imageId" :imageid="imageId" @nullifyid="closeModal"></image-modal>
+        <input type="file" id="file-field" @change="imageSelected">
+        <div class="imageInfo">
+            <div class="fieldEdit">
+                <label class="selectImage"  for="file-field"><h3 class="param">Select Image</h3></label>
+                    <!-- <p class="inputImitation" v-if="imageFile.name.length > 0">{{ imageFile.name }}</p> -->
+                    <div class="inputImitation">{{ imageFile.name }}</div>
+            </div>
+            <div class="fieldEdit">
+                <h3 class="param">Title</h3>
+                <input type="text" name="title" v-model="title" value="" placeholder="Title">
+            </div>
+            <div class="fieldEdit">
+                <h3 class="param">Description</h3>
+                <input type="text" name="desc" v-model="desc" value="" placeholder="Description">
+            </div>
+            <div class="fieldEdit">
+                <h3 class="param">Username</h3>
+                <input type="text" name="username" v-model="username" value="" placeholder="Username">
+            </div>
+            <div class="divButton">
+                <button @click="upload()" class="upload">Upload</button>
+            </div>
+
+        </div>
+        <div class="imageBoard">
+            <div class="imageBox" v-for="image in images">
+                <img class="imageUploaded" v-bind:src="image.url" v-bind:key="image.id" alt="Something went wrong with this image" @click="clickImage(image.id)">
+                <div class="imageTitle">
+                    {{ image.title }}
+                </div>
+            </div>
+        </div>
+        <button v-if='lastImage != idFirstImage' @click="moreImages()" class="upload">More Images</button>
+    </div>
+    <script id='my-template' type="text/x-template">
+        <div id='image-modal'>
+
+            <div class="gridArea">
+
+                <div class="imageAndClosing">
+                    <p class="closingTag" @click="closeImage()">x</p>
+                    <div class="imageBoxBig">
+                        <img class="imageUploaded" v-bind:src="image.url" alt="Something went wrong with this image">
+                        <div class="imageTitle">
+                            {{ image.title }}
+                        </div>
+                    </div>
+
+                </div>
+                <div class="formComments">
+                    <div class="fieldEdit">
+                        <h3 class="param">Username</h3>
+                        <input type="text" name="usernameComment" v-model="usernameComment" value="" placeholder="Username">
+                    </div>
+                    <div class="fieldEdit">
+                        <h3 class="param">Comment</h3>
+                        <input type="text" name="comment" v-model="comment" value="" placeholder="Comment">
+                    </div>
+
+                    <div class="divButton">
+                        <button @click="sendComment()" class="upload">sendComment</button>
+                    </div>
+                </div>
+                <div class="commentBoard">
+                    <div class="commentBox" v-for="comment in comments">
+                        <p class="infoAboutComment">Created at {{ comment.created_at }} by {{ comment.username }}</p>
+                        <p class="commentUploaded" v-bind:key="comment.id">{{ comment.comment}}</p>
+                    </div>
+                </div>
+                <div class="miniMenu">
+                    <a class="leftArrow" :href='"/#" + image.left_image'><-   </a>
+                    <div class="ImageTitleBig">{{ image.title }}</div>
+                    <a class="rightArrow" :href='"/#" + image.right_image'>   -></a>
+                </div>
+            </div>
+        </div>
+    </script>
     <script src="/js/vue.js"></script>
     <script src="/js/axios.min.js"></script>
+    <script src="/js/script.js"></script>
 </body>
 </html>
